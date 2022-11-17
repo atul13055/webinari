@@ -3,6 +3,10 @@ class WorkshopsController < ApplicationController
     @workshops = Workshop.all
   end
 
+  def create
+  	
+  end
+
   def show
     @workshop = Workshop.find(params[:id])
   end

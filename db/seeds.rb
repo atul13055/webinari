@@ -15,7 +15,7 @@ workshops = Workshop.create([
    start_time: "10:00 AM",
    end_time: "3:00 PM",
    total_sits: 100,
-   remaining_sits: 0,
+   remaining_sits: 100,
    registration_fee: 1500
 }, {
   name: "Full Stack Python development  Bootcamp   ",
@@ -25,7 +25,7 @@ workshops = Workshop.create([
   start_time: "10:00 AM",
   end_time: "3:00 PM",
   total_sits: 100,
-  remaining_sits: 0,
+  remaining_sits: 100,
   registration_fee: 1800
 },
 {
@@ -36,7 +36,7 @@ workshops = Workshop.create([
   start_time: "10:00 AM",
   end_time: "3:00 PM",
   total_sits: 100,
-  remaining_sits: 0,
+  remaining_sits: 100,
   registration_fee: 1000
 },
 ])

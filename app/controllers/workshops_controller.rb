@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
   def index
-    @workshops = Workshop.all
+    @workshops = Workshop.upcoming_workshops
   end
 
   def create
@@ -8,6 +8,6 @@ class WorkshopsController < ApplicationController
   end
 
   def show
-    @workshop = Workshop.find(params[:id])
+    @workshop = Workshop.friendly.find(params[:id])
   end
 end

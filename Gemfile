@@ -74,3 +74,5 @@ group :test do
 end
 gem 'cssbundling-rails'
 gem 'stripe'
+gem 'friendly_id'
+gem 'devise'

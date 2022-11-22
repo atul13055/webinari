@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+  has_many :refunds
   belongs_to :customer
   belongs_to :workshop
 
@@ -13,5 +14,9 @@ class Booking < ApplicationRecord
 
   def generate_order_number
   	self.order_number = "BOOKING-#{SecureRandom.hex(5).upcase}"
+  end
+
+  def is_refundable?
+    workshop.start_date > Date.today
   end
 end

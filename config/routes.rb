@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[create] do
   	get :booking_details, on: :member
   end
+
   resources :refunds do
     get :refund_acceptance, on: :member
   end
@@ -16,6 +17,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	 get 'dashboard' => 'dashboard#index'
+     resources :workshops
+     resources :bookings
+     resources :customers
+     resources :refunds do 
+      member do
+        patch :process_refund
+      end
+     end
   	end
 end
 

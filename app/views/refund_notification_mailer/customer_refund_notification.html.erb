@@ -1,0 +1,18 @@
+<div class="col-lg-10-xl-8 mx-auto">
+  <div class="card shadow">
+  	<div class="card-header">
+  		<h4 class="card-title"> Refund Request Accepted</h4>
+  	</div>
+  	<div class="card-body">
+  	  <h1>Greetings from Webinari</h1>
+  	  <h3>Hello <%= @customer.full_name %></h3>
+  		
+  	  <p class="lead"> This is to Infom You that your refund request for <strong><%= link_to @workshop.name, workshop_url(@workshop), target: '_blank'%>(order Number: <%= @booking.order_number %>)</strong> has been accepted. We forwarded your request to our team and they will process your refund request within 24 hours and you will receive your account.  </p>
+  	 <p class="lead"> Please find the refund details below: </p> 
+  	 <hr>
+  	 <h5>No.  of Tickets to be cancelled: <%= @refund.no_of_tickets %></h5>
+  	 <h5> Refundable Amount: $ <%= @refundable_amount %></h5>
+  	 <h5>Booking For: <%= link_to @workshop.name, workshop_url(@workshop), target: '_blank'%></h5>
+  	</div>
+  </div>
+</div>

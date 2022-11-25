@@ -31,12 +31,14 @@ class RefundsController < ApplicationController
   def update
     refundable_amount = params[:refund][:no_of_tickets].to_i * @workshop.registration_fee
     if @refund.update(no_of_tickets: params[:refund][:no_of_tickets])
+      RefundNotificationMailer.admin_refund_notification(@refund).deliver_now
+      RefundNotificationMailer.customer_refund_notification(@refund).deliver_now
       redirect_to refund_acceptance_refund_path, notice: "YOU ARE ELIGIBLE FOR REFUND OF  $ #{refundable_amount.to_f}"
     else
      redirect_to refund_acceptance_refund_path, notice: "SOMTHING WENT WORNG"  
     end
-  rescue StandardError => error 
-    redirect_to refund_acceptance_refund_path, alert: error.message
+  # rescue StandardError => error 
+  #   redirect_to refund_acceptance_refund_path, alert: error.message
   end
 
   def refund_acceptance

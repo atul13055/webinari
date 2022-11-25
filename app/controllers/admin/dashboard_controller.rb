@@ -6,5 +6,10 @@ class Admin::DashboardController < AdminController
    @customer_count = Customer.count
    @booking_count = Booking.count
    @revenue_earned = Booking.pluck(:amount_paid).sum
+
+   @refundable_bookings =  @refundable_booking = Booking.includes(:workshop).where('Workshops.start_date >= ?', Date.today).references(:workshops)
+   @active_refunds = Refund.includes(:booking).where('bookings.workshop_id IN (?) AND refunds.state = ?', Workshop.upcoming_workshops.ids, 'accepted').references(:booking)
+   
+
  end
-end
+end 

@@ -6,7 +6,9 @@ class Admin::CustomersController < AdminController
     @customers = @q.result
   end
 
-  def show;end
+  def show
+
+  end
 
   def destroy
     @customer.destroy

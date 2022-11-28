@@ -17,6 +17,7 @@ class Admin::BookingsController < AdminController
   private
 
   def set_booking_with_parents
+    #debugger
     @booking = Booking.find(params[:id])
     @customer = @booking.customer
     @workshop = @booking.workshop
